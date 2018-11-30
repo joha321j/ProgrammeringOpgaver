@@ -11,7 +11,7 @@ namespace Ex32
     class Address
     {
         private static string connectionString =
-            "Server=EALSQL1.eal.local; SERVER = Ex31Klinik; User Id = B_STUDENT30; Password = B_OPENDB30;";
+            "Server=EALSQL1.eal.local; Database = Ex31Klinik; User Id = B_STUDENT30; Password = B_OPENDB30;";
 
         public void InsertAddress(string street, string houseNr, string zipCode)
         {
@@ -43,6 +43,31 @@ namespace Ex32
             }
  
 
+        }
+
+        public void VisAftalerForPatient(int patientId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand visAftalerForPatient = new SqlCommand("VisAftalerForPatient", connection);
+
+                visAftalerForPatient.CommandType = CommandType.StoredProcedure;
+
+                visAftalerForPatient.Parameters.AddWithValue("@PatientId", patientId);
+
+                SqlDataReader reader = visAftalerForPatient.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        Console.Write(reader[i]);
+                    }
+
+                    Console.WriteLine();
+                }
+            }
         }
 
         private string getCityName()

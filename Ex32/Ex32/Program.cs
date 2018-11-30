@@ -10,6 +10,10 @@ namespace Ex32
     {
         static void Main(string[] args)
         {
+            Address adressAddress = new Address();
+
+            adressAddress.VisAftalerForPatient(1);
+            Console.ReadKey();
         }
     }
 }
