@@ -19,7 +19,7 @@ namespace Ex32
             {
                 connection.Open();
 
-                SqlCommand checkIfCityZipCodeExistsCommand = new SqlCommand("SELECT COUNT(PostNr, Bynavn) FROM PostNrBy WHERE PostNr = @zipCode");
+                SqlCommand checkIfCityZipCodeExistsCommand = new SqlCommand("SELECT COUNT(PostNr) FROM PostNrBy WHERE PostNr = @zipCode",connection);
                 checkIfCityZipCodeExistsCommand.Parameters.AddWithValue("@zipCode", zipCode);
                 int cityCount = (int) checkIfCityZipCodeExistsCommand.ExecuteScalar();
 
@@ -34,9 +34,10 @@ namespace Ex32
                 if (cityCount < 1)
                 {
                     string city = getCityName();
-                    SqlCommand cityZipCodeCommand = new SqlCommand("INSERT INTO PostNrBy (PostNr, Bynavn) VALUES (@ZipCode, @City)");
+                    SqlCommand cityZipCodeCommand = new SqlCommand("INSERT INTO PostNrBy (PostNr, Bynavn) VALUES (@ZipCode, @City)",connection);
                     cityZipCodeCommand.Parameters.AddWithValue("@ZipCode", zipCode);
                     cityZipCodeCommand.Parameters.AddWithValue("@City", city);
+                    cityZipCodeCommand.ExecuteNonQuery();
                 }
 
                  addresSqlCommand.ExecuteNonQuery();

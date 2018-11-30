@@ -11,8 +11,9 @@ namespace Ex32
         static void Main(string[] args)
         {
             Address adressAddress = new Address();
+            adressAddress.InsertAddress("Test", "69", "6969");
+            //adressAddress.VisAftalerForPatient(1);
 
-            adressAddress.VisAftalerForPatient(1);
             Console.ReadKey();
         }
     }
