@@ -21,11 +21,9 @@ namespace Adt
             {
                 Head = nodeToInsert;
             }
-
             if (Tail != null)
             {
-                Tail.Next = nodeToInsert;
-                
+                Tail.Next = nodeToInsert;   
             }
             nodeToInsert.Previous = Tail;
             Tail = nodeToInsert;
@@ -127,12 +125,12 @@ namespace Adt
                 Node tempNodeThree = tempNodeTwo.Next;
                 tempNodeTwo.Next = tempNodeTwo.Previous;
                 tempNodeTwo.Previous = tempNodeThree;
-                tempNode.Next = tempNodeTwo.Previous;
+                tempNode.Next = tempNodeThree;
+                tempNode.Previous = tempNodeTwo;
             }
 
             Head = Tail;
             Tail = tempNode;
-
         }
 
         public void Swap(int i)
@@ -147,7 +145,6 @@ namespace Adt
             object tempObj = tempNode.Data;
             tempNode.Data = tempNodeTwo.Data;
             tempNodeTwo.Data = tempObj;
-
         }
 
         class Node
@@ -166,9 +163,7 @@ namespace Adt
 
         public string FremOgTilbage()
         {
-            string resultString = string.Empty;
-
-            resultString = ToString();
+            string resultString = ToString();
             Reverse();
             Node tempNode = Head;
             Delete();
@@ -176,6 +171,8 @@ namespace Adt
             resultString += ToString();
 
             Insert(tempNode.Data, 0);
+
+            Reverse();
 
             return resultString;
         }
