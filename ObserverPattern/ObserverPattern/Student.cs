@@ -1,6 +1,8 @@
-﻿namespace ObserverPattern
+﻿using System;
+
+namespace ObserverPattern
 {
-    public class Student : Observer
+    public class Student : IObserver
     {
         private readonly Academy _subject;
         public string Message { get; set; }
@@ -13,9 +15,10 @@
             Update();
         }
 
-        public sealed override void Update()
+        public void Update()
         {
             Message = _subject.Message;
+            Console.WriteLine("{0} modtog beskeden {1} fra {2}!", Name, Message, _subject.Name);
         }
     }
 }

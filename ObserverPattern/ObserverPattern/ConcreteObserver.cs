@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern
 {
-    public class ConcreteObserver : Observer
+    public class ConcreteObserver : IObserver
     {
-        private ConcreteSubject _subject;
-        public int State { get; set; }
+        private readonly ConcreteSubject _subject;
+        public int State { get; private set; }
 
         public ConcreteObserver(ConcreteSubject subject)
         {
             _subject = subject;
             Update();
         }
-        public sealed override void Update()
+        public void Update()
         {
             State = _subject.State;
         }

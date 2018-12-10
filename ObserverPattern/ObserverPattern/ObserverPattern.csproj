@@ -46,7 +46,10 @@
     <Compile Include="Academy.cs" />
     <Compile Include="ConcreteObserver.cs" />
     <Compile Include="ConcreteSubject.cs" />
-    <Compile Include="Observer.cs" />
+    <Compile Include="Display.cs" />
+    <Compile Include="GasStation.cs" />
+    <Compile Include="MainOffice.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />

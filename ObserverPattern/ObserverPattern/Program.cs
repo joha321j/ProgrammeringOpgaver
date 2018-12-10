@@ -10,6 +10,30 @@ namespace ObserverPattern
     {
         static void Main(string[] args)
         {
+            TestGasStation();
+        }
+
+        static void TestGasStation()
+        {
+            var office = new MainOffice("RocketFuel ApS");
+
+            var gasStationSealand = new GasStation(Region.Sjælland, "Sorø", office);
+            var gasStationFuen = new GasStation(Region.Fyn, "Odense", office);
+            var gasStationJutland = new GasStation(Region.Jylland, "Aarhus", office);
+
+            office.ChangeGasPrice(12.5);
+            Console.ReadKey();
+
+            office.Detach(gasStationSealand);
+            office.ChangeGasPrice(10.0);
+
+            Console.ReadKey();
+
+            gasStationFuen.Discount = true;
+            Console.ReadKey();
+        }
+        static void TestAcademy()
+        {
             var p = new Academy("UCL");
 
             var s1 = new Student(p, "Jens");
@@ -26,6 +50,7 @@ namespace ObserverPattern
 
             p.Message = "Så er der fredagsbar!";
 
+            Console.ReadKey();
         }
     }
 }
