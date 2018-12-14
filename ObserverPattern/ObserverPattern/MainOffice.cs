@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern
 {
-    class MainOffice : Subject
+    public class MainOffice : Subject
     {
         private double _keroOxygenPrice;
         public double AlcoOxygenPrice => KeroOxygenPrice * 1.1;

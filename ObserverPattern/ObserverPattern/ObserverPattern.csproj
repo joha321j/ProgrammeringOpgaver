@@ -44,14 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Academy.cs" />
+    <Compile Include="GasTerminal.cs" />
     <Compile Include="ConcreteObserver.cs" />
     <Compile Include="ConcreteSubject.cs" />
     <Compile Include="Display.cs" />
+    <Compile Include="GasPump.cs" />
     <Compile Include="GasStation.cs" />
     <Compile Include="MainOffice.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PumpDisplay.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Subject.cs" />
   </ItemGroup>

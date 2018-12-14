@@ -14,10 +14,12 @@ namespace ObserverPattern
         Fyn = 95,
         Jylland = 100
     }
-    class GasStation :Subject, IObserver
+
+    public class GasStation :Subject, IObserver
     {
         private bool _discount;
         private readonly MainOffice _mainOffice;
+        internal GasTerminal GasTerminal;
 
         public bool Discount
         {
@@ -42,6 +44,7 @@ namespace ObserverPattern
             City = city;
             _mainOffice = mainOffice;
             mainOffice.Attach(this);
+            GasTerminal = new GasTerminal();
             new Display(this);
         }
 

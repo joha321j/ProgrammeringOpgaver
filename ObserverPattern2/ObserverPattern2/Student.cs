@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern2
 {
+    public delegate void NotifyHandler();
     class Student : IStudent
     {
         private readonly Academy _subject;

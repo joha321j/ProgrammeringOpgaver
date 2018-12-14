@@ -8,7 +8,7 @@ namespace ObserverPattern2
 {
     class Academy : Organization, IAcademy
     {
-        private readonly List<IStudent> _students = new List<IStudent>();
+        private NotifyHandler _studentNotifier;
 
         private string _message;
 
@@ -30,20 +30,17 @@ namespace ObserverPattern2
 
         public void Attach(IStudent student)
         {
-            _students.Add(student);
+            _studentNotifier += student.Update;
         }
 
         public void Detach(IStudent student)
         {
-            _students.Remove(student);
+            _studentNotifier -= student.Update;
         }
 
         public void Notify()
         {
-            foreach (IStudent observer in _students)
-            {
-                observer.Update();
-            }
+            _studentNotifier();
         }
     }
 }

@@ -29,7 +29,12 @@ namespace ObserverPattern
 
             Console.ReadKey();
 
+            Console.WriteLine("Add discount");
             gasStationFuen.Discount = true;
+            Console.ReadKey();
+
+            Console.WriteLine("Remove discount");
+            gasStationFuen.Discount = false;
             Console.ReadKey();
         }
         static void TestAcademy()

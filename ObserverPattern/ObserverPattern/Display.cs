@@ -19,7 +19,7 @@ namespace ObserverPattern
             _gasStation = gasStation;
             _gasStation.Attach(this);
         }
-        public void Update()
+        public virtual void Update()
         {
             AlcoOxygenPrice = _gasStation.AlcoOxygenPrice;
             HydroOxygenPrice = _gasStation.HydroOxygenPrice;

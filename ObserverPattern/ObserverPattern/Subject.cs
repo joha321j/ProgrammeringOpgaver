@@ -6,26 +6,24 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern
 {
+    public delegate void NotifyHandler();
     public abstract class Subject
     {
-        private readonly List<IObserver> _observers = new List<IObserver>();
+        private NotifyHandler notifySubjectsHandler;
 
         public void Attach(IObserver observer)
         {
-            _observers.Add(observer);
+            notifySubjectsHandler += observer.Update;
         }
 
         public void Detach(IObserver observer)
         {
-            _observers.Remove(observer);
+            notifySubjectsHandler -= observer.Update;
         }
 
         public void Notify()
         {
-            foreach (IObserver observer in _observers)
-            {
-                observer.Update();
-            }
+            notifySubjectsHandler();
         }
     }
 }
