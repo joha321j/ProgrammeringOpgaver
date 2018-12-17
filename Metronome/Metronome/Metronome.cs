@@ -15,7 +15,7 @@ namespace Metronome
             for (int i = 0; i < 5; i++)
             {
                 System.Threading.Thread.Sleep(3000);
-                MyMetronomeTick.Invoke();
+                MyMetronomeTick?.Invoke();
             }
         }
 
