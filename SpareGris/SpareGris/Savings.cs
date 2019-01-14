@@ -9,7 +9,7 @@ namespace SpareGris
     public delegate void SpareGrisEvent(object obj, EventArgs eventArgs);
     class Savings
     {
-        public SpareGrisEvent SavingsEvent;
+        public event SpareGrisEvent SavingsEvent;
 
         private double _savings;
 
