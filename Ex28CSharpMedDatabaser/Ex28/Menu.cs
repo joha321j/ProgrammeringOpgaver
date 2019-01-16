@@ -8,7 +8,7 @@ namespace Ex28
 {
     class Menu
     {
-        Controller controller = new Controller();
+        private readonly Controller _controller = new Controller();
         public void Show()
         {
             bool running = true;
@@ -55,7 +55,12 @@ namespace Ex28
                 lastName = Console.ReadLine();
             }
 
-            controller.FindOwnerByLastName(lastName);
+            List<string> ownerList = _controller.FindOwnerByLastName(lastName);
+
+            foreach (string owner in ownerList)
+            {
+                Console.WriteLine(owner);
+            }
         }
 
         private void FindOwnerByEmail()
@@ -68,12 +73,17 @@ namespace Ex28
                 Console.Clear();
                 Console.WriteLine("Indtast fornavn og email, adskil med mellemrum.");
 
-                string[] inputStrings = Console.ReadLine().Split(' ');
-                firstName = inputStrings[0];
-                email = inputStrings[1];
+                string[] inputStrings = Console.ReadLine()?.Split(' ');
+                firstName = inputStrings?[0];
+                email = inputStrings?[1];
             }
 
-            controller.FindOwnerByEmail(firstName, email);
+            List<string> ownerList = _controller.FindOwnerByEmail(firstName, email);
+
+            foreach (string owner in ownerList)
+            {
+                Console.WriteLine(owner);
+            }
         }
 
         private void AddOwner()
@@ -127,12 +137,19 @@ namespace Ex28
                 }
 
             }
-            controller.AddOwner(ownerLastName, ownerFirstName, ownerPhone, ownerEmail);
+            _controller.AddOwner(ownerLastName, ownerFirstName, ownerPhone, ownerEmail);
         }
 
         private void ShowAllPets()
         {
-            controller.ShowAllPets();
+            List<string> petList = _controller.GetAllPets();
+
+            foreach (string petLine in petList)
+            {
+                Console.WriteLine(petLine);
+            }
+
+            Console.ReadKey();
         }
 
         private void AddPet()
@@ -200,7 +217,7 @@ namespace Ex28
                         break;
                 }
             }
-           controller.AddPet(petName, petType, petBreed, petDateOfBirth, petWeight, ownerId);
+           _controller.AddPet(petName, petType, petBreed, petDateOfBirth, petWeight, ownerId);
         }
 
         private string GetUserChoice()

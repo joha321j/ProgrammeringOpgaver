@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
@@ -22,10 +23,10 @@ namespace Ex28
         OwnerPhone,
         OwnerEmail
     }
-    public class Database
+    public class Connection
     {
         private string connectionString = "Server = EALSQL1.eal.local;" +
-                                          " Database = B_DB14_2018;" +
+                                          " Connection = B_DB14_2018;" +
                                           " User Id = B_STUDENT14;" +
                                           " Password = B_OPENDB14";
 
@@ -50,13 +51,15 @@ namespace Ex28
                 }
                 catch (SqlException e)
                 {
-                    Console.WriteLine("Shit is fucked! " + e.Message);
+
+                    throw new DatabaseException("a");
                 }
             }
         }
 
-        public void ShowAllPets()
+        public List<string> GetAllPets()
         {
+            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -65,27 +68,28 @@ namespace Ex28
                     using (SqlCommand showAllPets = new SqlCommand("SELECT * FROM PET", connection))
                     using (SqlDataReader reader = showAllPets.ExecuteReader())
                     {
-                        string date;
+                        List<string> petList = new List<string>();
                         while (reader.Read())
                         {
-                            if (!reader.IsDBNull(4))
-                            {
-                                date = reader.GetDateTime(4).ToString();
-                            }
-                            else
-                            {
-                                date = "NULL";
-                            }
-                            Console.WriteLine("PetID: {0} PetName: {1} PetType: {2} PetBreed: {3} PetDOB: {4} PetWeight: {5} OwnerID: {6}",
-                                              reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), date, reader.GetDecimal(5), reader.GetInt32(6));
+                            string date;
+                            date = !reader.IsDBNull(4) ? reader.GetDateTime(4).ToString() : "NULL";
+
+                            petList.Add("PetID: " + reader.GetInt32(0) +
+                                        " PetName: " + reader.GetString(1) +
+                                        " PetType: " + reader.GetString(2) +
+                                        " PetBreed: " + reader.GetString(3) +
+                                        " PetDOB: " + date +
+                                        " PetWeight: " + reader.GetDecimal(5) +
+                                        " OwnerID: " + reader.GetInt32(6));
                         }
 
-                        Console.ReadKey();
+                        return petList;
                     }
                 }
                 catch (SqlException e)
                 {
-                    Console.WriteLine("Shit is uber fucked! " + e.Message);
+
+                    throw new DatabaseException("a");
                 }
             }
         }
@@ -114,7 +118,7 @@ namespace Ex28
             }
         }
 
-        public void FindOwnerByEmail(string firstName, string email)
+        public List<string> FindOwnerByEmail(string firstName, string email)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -124,28 +128,34 @@ namespace Ex28
                     using (SqlCommand findOwnerByEmailCommand = new SqlCommand("GetOwnersByEmail", connection)
                         { CommandType = CommandType.StoredProcedure})
                     {
+                        List<string> ownerList = new List<string>();
+
                         findOwnerByEmailCommand.Parameters.Add(new SqlParameter("@InputEmail", email));
                         findOwnerByEmailCommand.Parameters.Add(new SqlParameter("@InputFirstName", firstName));
+
                         using (SqlDataReader reader = findOwnerByEmailCommand.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                Console.WriteLine("OwnerID: {0} OwnerLastName: {1} OwnerFirstName: {2} OwnerPhone: {3} OwnerEmail: {4}"
-                                    , reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
+                                ownerList.Add("OwnerID: " + reader.GetInt32(0) +
+                                              " OwnerLastName: " + reader.GetString(1) +
+                                              " OwnerFirstName: " + reader.GetString(2) +
+                                              " OwnerPhone: " + reader.GetString(3) +
+                                              " OwnerEmail: " + reader.GetString(4));
                             }
 
-                            Console.ReadKey();
+                            return ownerList;
                         }
                     }
                 }
                 catch (SqlException e)
                 {
-                    Console.WriteLine("Shit is quite fucked" + e.Message);
+                    throw new DatabaseException("a");
                 }
             }
         }
 
-        public void FindOwnerByLastName(string lastName)
+        public List<string> FindOwnerByLastName(string lastName)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -156,13 +166,17 @@ namespace Ex28
                     findOwnerByLastNameCommand.Parameters.Add(new SqlParameter("@OwnersLastName", lastName));
                     using (SqlDataReader reader = findOwnerByLastNameCommand.ExecuteReader())
                     {
+                        List<string> ownerList = new List<string>();
                         while (reader.Read())
                         {
-                            Console.WriteLine("OwnerID: {0} OwnerLastName: {1} OwnerFirstName: {2} OwnerPhone: {3} OwnerEmail: {4}"
-                                , reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
+                            ownerList.Add("OwnerID: " + reader.GetInt32(0) +
+                                          " OwnerLastName: " + reader.GetString(1) +
+                                          " OwnerFirstName: " + reader.GetString(2) +
+                                          " OwnerPhone: " + reader.GetString(3) +
+                                          " OwnerEmail: " + reader.GetString(4));
                         }
 
-                        Console.ReadKey();
+                        return ownerList;
                     }
                 }
             }

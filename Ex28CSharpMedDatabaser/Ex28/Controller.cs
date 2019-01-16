@@ -9,7 +9,7 @@ namespace Ex28
 {
     class Controller
     {
-        Database database = new Database();
+        private readonly Connection _connection = new Connection();
 
         public void AddPet(string petName, string petType, string petBreed, string petDateOfBirth, string petWeight, string ownerId)
         {
@@ -17,27 +17,27 @@ namespace Ex28
             double.TryParse(petWeight, out double petWeightDouble);
             DateTime petDateOfBirthDateTime = Convert.ToDateTime(petDateOfBirth);
 
-            database.AddPet(petName, petType, petBreed, petDateOfBirthDateTime, petWeightDouble, ownerIdInt);
+            _connection.AddPet(petName, petType, petBreed, petDateOfBirthDateTime, petWeightDouble, ownerIdInt);
         }
 
-        public void ShowAllPets()
+        public List<string> GetAllPets()
         {
-            database.ShowAllPets();
+            return _connection.GetAllPets();
         }
 
         public void AddOwner(string ownerLastName, string ownerFirstName, string ownerPhone, string ownerEmail)
         {
-            database.AddOwner(ownerFirstName, ownerLastName, ownerPhone, ownerEmail);
+            _connection.AddOwner(ownerFirstName, ownerLastName, ownerPhone, ownerEmail);
         }
 
-        public void FindOwnerByEmail(string firstName, string email)
+        public List<string> FindOwnerByEmail(string firstName, string email)
         {
-            database.FindOwnerByEmail(firstName, email);
+            return _connection.FindOwnerByEmail(firstName, email);
         }
 
-        public void FindOwnerByLastName(string lastName)
+        public List<string> FindOwnerByLastName(string lastName)
         {
-            database.FindOwnerByLastName(lastName);
+            return _connection.FindOwnerByLastName(lastName);
         }
     }
 }
