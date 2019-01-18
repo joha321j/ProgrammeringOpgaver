@@ -2,35 +2,17 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 
-namespace Ex28
+namespace Ex28.Domain
 {
-    enum InsertPetVariables
-    {
-        PetName,
-        PetType,
-        PetBreed,
-        PetDateOfBirth,
-        PetWeight,
-        OwnerId
-    }
-
-    enum InsertOwnerVariables
-    {
-        OwnerLastName,
-        OwnerFirstName,
-        OwnerPhone,
-        OwnerEmail
-    }
-    public class Connection
+    internal class Connection
     {
         private string connectionString = "Server = EALSQL1.eal.local;" +
                                           " Connection = B_DB14_2018;" +
                                           " User Id = B_STUDENT14;" +
                                           " Password = B_OPENDB14";
 
-        public void AddPet(string petName, string petType, string petBreed, DateTime petDateOfBirth, double petWeight, int ownerId)
+        public void AddPet(Pet pet)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -40,24 +22,24 @@ namespace Ex28
                     using (SqlCommand insertPet = new SqlCommand("InsertPet", connection)
                         { CommandType = CommandType.StoredProcedure})
                     {
-                        insertPet.Parameters.Add(new SqlParameter("@PetInsertName", petName));
-                        insertPet.Parameters.Add(new SqlParameter("@PetInsertType", petType));
-                        insertPet.Parameters.Add(new SqlParameter("@PetInsertBreed", petBreed));
-                        insertPet.Parameters.Add(new SqlParameter("@PetInsertDOB", petDateOfBirth));
-                        insertPet.Parameters.Add(new SqlParameter("@PetInsertWeight", petWeight));
-                        insertPet.Parameters.Add(new SqlParameter("@OwnerInsertPk", ownerId));
+                        insertPet.Parameters.Add(new SqlParameter("@PetInsertName", pet.Name));
+                        insertPet.Parameters.Add(new SqlParameter("@PetInsertType", pet.Type));
+                        insertPet.Parameters.Add(new SqlParameter("@PetInsertBreed", pet.Breed));
+                        insertPet.Parameters.Add(new SqlParameter("@PetInsertDOB", pet.DateOfBirth));
+                        insertPet.Parameters.Add(new SqlParameter("@PetInsertWeight", pet.Weight));
+                        insertPet.Parameters.Add(new SqlParameter("@OwnerInsertPk", pet.OwnerId));
                         insertPet.ExecuteNonQuery();
                     }
                 }
                 catch (SqlException e)
                 {
 
-                    throw new DatabaseException("a");
+                    throw new DatabaseException(e.Message);
                 }
             }
         }
 
-        public List<string> GetAllPets()
+        public List<Pet> GetAllPets()
         {
             
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -68,19 +50,14 @@ namespace Ex28
                     using (SqlCommand showAllPets = new SqlCommand("SELECT * FROM PET", connection))
                     using (SqlDataReader reader = showAllPets.ExecuteReader())
                     {
-                        List<string> petList = new List<string>();
+                        List<Pet> petList = new List<Pet>();
                         while (reader.Read())
                         {
-                            string date;
-                            date = !reader.IsDBNull(4) ? reader.GetDateTime(4).ToString() : "NULL";
+                            string date = !reader.IsDBNull(4) ? reader.GetDateTime(4).ToString() : "NULL";
 
-                            petList.Add("PetID: " + reader.GetInt32(0) +
-                                        " PetName: " + reader.GetString(1) +
-                                        " PetType: " + reader.GetString(2) +
-                                        " PetBreed: " + reader.GetString(3) +
-                                        " PetDOB: " + date +
-                                        " PetWeight: " + reader.GetDecimal(5) +
-                                        " OwnerID: " + reader.GetInt32(6));
+                            Pet petToAdd = new Pet(reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                                date, reader.GetDouble(5), reader.GetInt32(6), reader.GetInt32(0));
+                            petList.Add(petToAdd);
                         }
 
                         return petList;
@@ -89,12 +66,12 @@ namespace Ex28
                 catch (SqlException e)
                 {
 
-                    throw new DatabaseException("a");
+                    throw new DatabaseException(e.Message);
                 }
             }
         }
 
-        public void AddOwner(string ownerFirstName, string ownerLastName, string ownerPhone, string ownerEmail = "NULL")
+        public void AddOwner(Owner owner)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -104,21 +81,21 @@ namespace Ex28
                     using (SqlCommand insertOwner = new SqlCommand("InsertPetOwner", connection)
                         { CommandType =  CommandType.StoredProcedure})
                     {
-                        insertOwner.Parameters.Add(new SqlParameter("@OwnerLastName", ownerLastName));
-                        insertOwner.Parameters.Add(new SqlParameter("@OwnerFirstName", ownerFirstName));
-                        insertOwner.Parameters.Add(new SqlParameter("@OwnerPhone", ownerPhone));
-                        insertOwner.Parameters.Add(new SqlParameter("@OwnerEmail", ownerEmail));
+                        insertOwner.Parameters.Add(new SqlParameter("@OwnerLastName", owner.LastName));
+                        insertOwner.Parameters.Add(new SqlParameter("@OwnerFirstName", owner.FirstName));
+                        insertOwner.Parameters.Add(new SqlParameter("@OwnerPhone", owner.Phone));
+                        insertOwner.Parameters.Add(new SqlParameter("@OwnerEmail", owner.Email));
                         insertOwner.ExecuteNonQuery();
                     }
                 }
                 catch (SqlException e)
                 {
-                    Console.WriteLine("Shit is so fucked." + e.Message);
+                    throw new DatabaseException(e.Message);
                 }
             }
         }
 
-        public List<string> FindOwnerByEmail(string firstName, string email)
+        public List<Owner> FindOwnerByEmail(string firstName, string email)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -128,7 +105,7 @@ namespace Ex28
                     using (SqlCommand findOwnerByEmailCommand = new SqlCommand("GetOwnersByEmail", connection)
                         { CommandType = CommandType.StoredProcedure})
                     {
-                        List<string> ownerList = new List<string>();
+                        List<Owner> ownerList = new List<Owner>();
 
                         findOwnerByEmailCommand.Parameters.Add(new SqlParameter("@InputEmail", email));
                         findOwnerByEmailCommand.Parameters.Add(new SqlParameter("@InputFirstName", firstName));
@@ -137,11 +114,8 @@ namespace Ex28
                         {
                             while (reader.Read())
                             {
-                                ownerList.Add("OwnerID: " + reader.GetInt32(0) +
-                                              " OwnerLastName: " + reader.GetString(1) +
-                                              " OwnerFirstName: " + reader.GetString(2) +
-                                              " OwnerPhone: " + reader.GetString(3) +
-                                              " OwnerEmail: " + reader.GetString(4));
+                                Owner owner = new Owner(reader.GetString(2), reader.GetString(1), reader.GetString(3), reader.GetString(4), reader.GetInt32(0));
+                                ownerList.Add(owner);
                             }
 
                             return ownerList;
@@ -150,12 +124,12 @@ namespace Ex28
                 }
                 catch (SqlException e)
                 {
-                    throw new DatabaseException("a");
+                    throw new DatabaseException(e.Message);
                 }
             }
         }
 
-        public List<string> FindOwnerByLastName(string lastName)
+        public List<Owner> FindOwnerByLastName(string lastName)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -166,14 +140,11 @@ namespace Ex28
                     findOwnerByLastNameCommand.Parameters.Add(new SqlParameter("@OwnersLastName", lastName));
                     using (SqlDataReader reader = findOwnerByLastNameCommand.ExecuteReader())
                     {
-                        List<string> ownerList = new List<string>();
+                        List<Owner> ownerList = new List<Owner>();
                         while (reader.Read())
                         {
-                            ownerList.Add("OwnerID: " + reader.GetInt32(0) +
-                                          " OwnerLastName: " + reader.GetString(1) +
-                                          " OwnerFirstName: " + reader.GetString(2) +
-                                          " OwnerPhone: " + reader.GetString(3) +
-                                          " OwnerEmail: " + reader.GetString(4));
+                            Owner owner = new Owner(reader.GetString(2), reader.GetString(1), reader.GetString(3), reader.GetString(4), reader.GetInt32(0));
+                            ownerList.Add(owner);
                         }
 
                         return ownerList;

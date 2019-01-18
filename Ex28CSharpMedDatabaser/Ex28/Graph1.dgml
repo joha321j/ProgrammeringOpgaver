@@ -1,128 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph DataVirtualized="True" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="(@1 @3 @10 Member=OwnerId)" Category="CodeSchema_Field" Bounds="-55.4958845806613,11.4931182665214,82.22,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="OwnerId" />
-    <Node Id="(@1 @3 @10 Member=PetBreed)" Category="CodeSchema_Field" Bounds="-55.4958843772108,39.4209046167716,84.2933333333333,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="PetBreed" />
-    <Node Id="(@1 @3 @10 Member=PetDateOfBirth)" Category="CodeSchema_Field" Bounds="-55.4958855979139,67.3486981195793,116.103333333333,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="PetDateOfBirth" />
-    <Node Id="(@1 @3 @10 Member=PetName)" Category="CodeSchema_Field" Bounds="-55.4958856996392,95.276485900341,85.3166666666667,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="PetName" />
-    <Node Id="(@1 @3 @10 Member=PetType)" Category="CodeSchema_Field" Bounds="-55.5439208762342,123.318848113476,78.3833333333333,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="PetType" />
-    <Node Id="(@1 @3 @10 Member=PetWeight)" Category="CodeSchema_Field" Bounds="62.4713983122016,11.4931182665214,91.4666666666667,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="PetWeight" />
-    <Node Id="(@1 @3 @8 Member=OwnerEmail)" Category="CodeSchema_Field" Bounds="-238.797254819919,8.65706159591686,100.286666666667,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="OwnerEmail" />
-    <Node Id="(@1 @3 @8 Member=OwnerFirstName)" Category="CodeSchema_Field" Bounds="-238.797254209568,36.5989604187013,125.756666666667,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="OwnerFirstName" />
-    <Node Id="(@1 @3 @8 Member=OwnerLastName)" Category="CodeSchema_Field" Bounds="-238.797254718194,64.5408625793458,124.573333333333,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="OwnerLastName" />
-    <Node Id="(@1 @3 @8 Member=OwnerPhone)" Category="CodeSchema_Field" Bounds="-238.797255430271,92.4827723693849,105.566666666667,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="OwnerPhone" />
-    <Node Id="@11" Category="CodeSchema_Enum" Bounds="-61.5439208762342,-14.5069817334786,221.481985855102,169.785929846954" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsInternal="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="6" Group="Expanded" Label="InsertPetVariables" UseManualLocation="True" />
-    <Node Id="@12" Category="CodeSchema_Class" Bounds="-1.67752536744641,-72.6973027537164,91.6333333333333,25" CodeSchemaProperty_IsInternal="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Menu" />
-    <Node Id="@13" Category="CodeSchema_Class" Bounds="2.95993017001503,-130.600632529074,106.606666666667,25" CodeSchemaProperty_IsInternal="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Program" />
-    <Node Id="@2" Category="CodeSchema_Assembly" Bounds="-300.293922096937,-210.600832529074,676.123302942517,460.88008064255" CodeSchemaProperty_StrongName="Ex28, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="NotFetched" FetchedChildrenCount="1" FilePath="$(5d9b9020-ce62-4686-8957-5e26cb716a80.OutputPath)" Group="Expanded" Label="Ex28.exe" UseManualLocation="True" />
-    <Node Id="@4" Category="CodeSchema_Namespace" Bounds="-280.293922096937,-170.600732529074,636.123302942517,400.87988064255" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="7" Group="Expanded" Label="Ex28" UseManualLocation="True" />
-    <Node Id="@5" Category="CodeSchema_Class" Bounds="209.999150532923,-17.3369330327196,113.783333333333,25" CodeSchemaProperty_IsInternal="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Controller" />
-    <Node Id="@6" Category="CodeSchema_Class" Bounds="209.999150532923,81.4951285614488,110.223333333333,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Database" />
-    <Node Id="@7" Category="CodeSchema_Class" Bounds="174.362714178913,185.279048113476,161.466666666667,25" CodeSchemaProperty_IsInternal="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="DatabaseException" />
-    <Node Id="@9" Category="CodeSchema_Enum" Bounds="-260.293921486586,-17.3430384040831,168.75,141.785910773468" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsInternal="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="4" Group="Expanded" Label="InsertOwnerVariables" UseManualLocation="True" />
+    <Node Id="@2" Category="CodeSchema_Assembly" Bounds="0,0,105.176666666667,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(5d9b9020-ce62-4686-8957-5e26cb716a80.OutputPath)" Group="Collapsed" Label="Ex28.exe" />
   </Nodes>
-  <Links>
-    <Link Source="@11" Target="(@1 @3 @10 Member=OwnerId)" Category="Contains" FetchingParent="@11" />
-    <Link Source="@11" Target="(@1 @3 @10 Member=PetBreed)" Category="Contains" FetchingParent="@11" />
-    <Link Source="@11" Target="(@1 @3 @10 Member=PetDateOfBirth)" Category="Contains" FetchingParent="@11" />
-    <Link Source="@11" Target="(@1 @3 @10 Member=PetName)" Category="Contains" FetchingParent="@11" />
-    <Link Source="@11" Target="(@1 @3 @10 Member=PetType)" Category="Contains" FetchingParent="@11" />
-    <Link Source="@11" Target="(@1 @3 @10 Member=PetWeight)" Category="Contains" FetchingParent="@11" />
-    <Link Source="@12" Target="@11" Category="References" Bounds="44.6233084263092,-47.6973027537164,0.937233862667426,24.1970646660389" IsSourceVirtualized="True" Weight="6" />
-    <Link Source="@12" Target="@5" Category="References" Bounds="88.5014922425746,-49.1719484438563,119.359195127699,29.6642848820833" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
-      <Category Ref="CodeSchema_Calls" />
-    </Link>
-    <Link Source="@12" Target="@9" Category="References" Bounds="-84.1121368408203,-47.6973037719727,87.5349462032318,32.8812265396118" IsSourceVirtualized="True" Weight="6" />
-    <Link Source="@13" Target="@12" Category="CodeSchema_Calls" Bounds="48.6009320059494,-105.600632529074,5.04501176570892,24.0943612306167" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
-    <Link Source="@2" Target="@4" Category="Contains" FetchingParent="@2" />
-    <Link Source="@4" Target="@11" Category="Contains" FetchingParent="@4" />
-    <Link Source="@4" Target="@12" Category="Contains" FetchingParent="@4" />
-    <Link Source="@4" Target="@13" Category="Contains" FetchingParent="@4" />
-    <Link Source="@4" Target="@5" Category="Contains" FetchingParent="@4" />
-    <Link Source="@4" Target="@6" Category="Contains" FetchingParent="@4" />
-    <Link Source="@4" Target="@7" Category="Contains" FetchingParent="@4" />
-    <Link Source="@4" Target="@9" Category="Contains" FetchingParent="@4" />
-    <Link Source="@5" Target="@6" Category="References" Bounds="265.498013437221,7.6630669672804,1.16767438996544,64.8335209163031" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
-      <Category Ref="CodeSchema_Calls" />
-    </Link>
-    <Link Source="@6" Target="@7" Category="CodeSchema_Calls" Bounds="257.16670372575,106.495128561449,6.73790906729823,69.8255311325936" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
-    <Link Source="@9" Target="(@1 @3 @8 Member=OwnerEmail)" Category="Contains" FetchingParent="@9" />
-    <Link Source="@9" Target="(@1 @3 @8 Member=OwnerFirstName)" Category="Contains" FetchingParent="@9" />
-    <Link Source="@9" Target="(@1 @3 @8 Member=OwnerLastName)" Category="Contains" FetchingParent="@9" />
-    <Link Source="@9" Target="(@1 @3 @8 Member=OwnerPhone)" Category="Contains" FetchingParent="@9" />
-  </Links>
+  <Links />
   <Categories>
     <Category Id="CodeSchema_Assembly" Label="Assembly" BasedOn="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Assembly" NavigationActionLabel="Assemblies" />
-    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
-    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
-    <Category Id="CodeSchema_Enum" Label="Enum" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Enum" NavigationActionLabel="Enums" />
-    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
-    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
-    <Category Id="CodeSchema_Namespace" Label="Namespace" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Type" Icon="CodeSchema_Namespace" NavigationActionLabel="Namespaces" />
-    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
-    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
     <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
-    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
   </Categories>
   <Properties>
     <Property Id="Bounds" DataType="System.Windows.Rect" />
     <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
-    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
-    <Property Id="CodeSchemaProperty_IsFinal" Label="Is Final" Description="Flag to indicate the member is 'Final' and cannot be derived from" DataType="System.Boolean" />
-    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
-    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
-    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
-    <Property Id="CodeSchemaProperty_StrongName" Label="StrongName" Description="StrongName" DataType="System.String" />
     <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
     <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
     <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
     <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
     <Property Id="Expression" DataType="System.String" />
-    <Property Id="FetchedChildrenCount" DataType="System.Int32" />
-    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
     <Property Id="FilePath" Label="File Path" Description="File Path" DataType="System.String" />
     <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
     <Property Id="GroupLabel" DataType="System.String" />
     <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
-    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
-    <Property Id="IsContainment" DataType="System.Boolean" />
     <Property Id="IsEnabled" DataType="System.Boolean" />
-    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
-    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
     <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
     <Property Id="Layout" DataType="System.String" />
     <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
-    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
     <Property Id="TargetType" DataType="System.Type" />
-    <Property Id="UseManualLocation" DataType="System.Boolean" />
     <Property Id="Value" DataType="System.String" />
     <Property Id="ValueLabel" DataType="System.String" />
     <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
-    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
     <Property Id="ZoomLevel" DataType="System.String" />
   </Properties>
   <QualifiedNames>
     <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
-    <Name Id="Member" Label="Member" ValueType="System.Object" />
-    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
-    <Name Id="Type" Label="Type" ValueType="System.Object" />
   </QualifiedNames>
   <IdentifierAliases>
     <Alias n="1" Uri="Assembly=$(5d9b9020-ce62-4686-8957-5e26cb716a80.OutputPathUri)" />
     <Alias n="2" Id="(@1)" />
-    <Alias n="3" Id="Namespace=Ex28" />
-    <Alias n="4" Id="(@1 @3)" />
-    <Alias n="5" Id="(@1 @3 Type=Controller)" />
-    <Alias n="6" Id="(@1 @3 Type=Database)" />
-    <Alias n="7" Id="(@1 @3 Type=DatabaseException)" />
-    <Alias n="8" Id="Type=InsertOwnerVariables" />
-    <Alias n="9" Id="(@1 @3 @8)" />
-    <Alias n="10" Id="Type=InsertPetVariables" />
-    <Alias n="11" Id="(@1 @3 @10)" />
-    <Alias n="12" Id="(@1 @3 Type=Menu)" />
-    <Alias n="13" Id="(@1 @3 Type=Program)" />
   </IdentifierAliases>
   <Styles>
+    <Style TargetType="Node" GroupLabel="Error" ValueLabel="Error Level">
+      <Condition Expression="HasValue('ErrorLevel')" />
+      <Setter Property="Icon" Value="Node.Error" />
+    </Style>
     <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
       <Condition Expression="HasCategory('QueryResult')" />
       <Setter Property="Background" Value="#FFBCFFBE" />

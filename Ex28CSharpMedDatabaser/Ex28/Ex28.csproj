@@ -43,11 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
-    <Compile Include="Connection.cs" />
-    <Compile Include="DatabaseException.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Application\Controller.cs" />
+    <Compile Include="Domain\Connection.cs" />
+    <Compile Include="Domain\DatabaseException.cs" />
+    <Compile Include="Domain\DomainFacade.cs" />
+    <Compile Include="Domain\Owner.cs" />
+    <Compile Include="Domain\OwnerController.cs" />
+    <Compile Include="Domain\PetController.cs" />
+    <Compile Include="UI\Menu.cs" />
+    <Compile Include="Domain\Pet.cs" />
+    <Compile Include="Application\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

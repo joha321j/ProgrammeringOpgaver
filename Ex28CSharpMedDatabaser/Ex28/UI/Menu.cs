@@ -3,9 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ex28.Application;
 
-namespace Ex28
+namespace Ex28.UI
 {
+    enum InsertPetVariables
+    {
+        PetName,
+        PetType,
+        PetBreed,
+        PetDateOfBirth,
+        PetWeight,
+        OwnerId
+    }
+
+    enum InsertOwnerVariables
+    {
+        OwnerLastName,
+        OwnerFirstName,
+        OwnerPhone,
+        OwnerEmail
+    }
+
     class Menu
     {
         private readonly Controller _controller = new Controller();

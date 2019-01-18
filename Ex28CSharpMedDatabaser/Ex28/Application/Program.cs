@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ex28.UI;
 
-namespace Ex28
+namespace Ex28.Application
 {
     class Program
     {

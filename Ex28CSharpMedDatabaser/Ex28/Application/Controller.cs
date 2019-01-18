@@ -4,12 +4,13 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Ex28.Domain;
 
-namespace Ex28
+namespace Ex28.Application
 {
     class Controller
     {
-        private readonly Connection _connection = new Connection();
+        private readonly DomainFacade _domain = new DomainFacade();
 
         public void AddPet(string petName, string petType, string petBreed, string petDateOfBirth, string petWeight, string ownerId)
         {
@@ -17,27 +18,27 @@ namespace Ex28
             double.TryParse(petWeight, out double petWeightDouble);
             DateTime petDateOfBirthDateTime = Convert.ToDateTime(petDateOfBirth);
 
-            _connection.AddPet(petName, petType, petBreed, petDateOfBirthDateTime, petWeightDouble, ownerIdInt);
+            _domain.AddPet(petName, petType, petBreed, petDateOfBirthDateTime.ToShortDateString(), petWeightDouble, ownerIdInt);
         }
 
         public List<string> GetAllPets()
         {
-            return _connection.GetAllPets();
+            return _domain.GetAllPets();
         }
 
         public void AddOwner(string ownerLastName, string ownerFirstName, string ownerPhone, string ownerEmail)
         {
-            _connection.AddOwner(ownerFirstName, ownerLastName, ownerPhone, ownerEmail);
+            _domain.AddOwner(ownerFirstName, ownerLastName, ownerPhone, ownerEmail);
         }
 
         public List<string> FindOwnerByEmail(string firstName, string email)
         {
-            return _connection.FindOwnerByEmail(firstName, email);
+            return _domain.FindOwnerByEmail(firstName, email);
         }
 
         public List<string> FindOwnerByLastName(string lastName)
         {
-            return _connection.FindOwnerByLastName(lastName);
+            return _domain.FindOwnerByLastName(lastName);
         }
     }
 }
