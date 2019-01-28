@@ -8,9 +8,20 @@ using Ex28.Domain;
 
 namespace Ex28.Application
 {
-    class Controller
+    public class Controller
     {
-        private readonly DomainFacade _domain = new DomainFacade();
+        private static Controller _instance;
+        private readonly DomainFacade _domain;
+
+        private Controller()
+        {
+            _domain = new DomainFacade();
+        }
+
+        public static Controller GetController()
+        {
+            return _instance ?? (_instance = new Controller());
+        }
 
         public void AddPet(string petName, string petType, string petBreed, string petDateOfBirth, string petWeight, string ownerId)
         {
@@ -21,6 +32,10 @@ namespace Ex28.Application
             _domain.AddPet(petName, petType, petBreed, petDateOfBirthDateTime.ToShortDateString(), petWeightDouble, ownerIdInt);
         }
 
+        /// <summary>
+        /// PetId, Name, Type, Breed, DateOfBirth, Weight, OwnerId
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetAllPets()
         {
             return _domain.GetAllPets();

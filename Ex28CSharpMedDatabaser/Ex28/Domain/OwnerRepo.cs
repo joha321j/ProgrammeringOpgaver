@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ex28.Domain
 {
-    class OwnerController
+    class OwnerRepo
     {
         private readonly Connection _connection;
 
-        public OwnerController(Connection connection)
+        public OwnerRepo(Connection connection)
         {
             _connection = connection;
         }

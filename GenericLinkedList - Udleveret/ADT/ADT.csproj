@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5D9B9020-CE62-4686-8957-5E26CB716A80}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Ex28</RootNamespace>
-    <AssemblyName>Ex28</AssemblyName>
+    <ProjectGuid>{08359D5F-3D38-42C6-B549-7C9D1FA5C9AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ADT</RootNamespace>
+    <AssemblyName>ADT</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,21 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Controller.cs" />
-    <Compile Include="Domain\Connection.cs" />
-    <Compile Include="Domain\DatabaseException.cs" />
-    <Compile Include="Domain\DomainFacade.cs" />
-    <Compile Include="Domain\Owner.cs" />
-    <Compile Include="Domain\OwnerRepo.cs" />
-    <Compile Include="Domain\PetRepo.cs" />
-    <Compile Include="UI\Menu.cs" />
-    <Compile Include="Domain\Pet.cs" />
-    <Compile Include="Application\Program.cs" />
+    <Compile Include="GenericMyLinkedList.cs" />
+    <Compile Include="MyLinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Graph1.dgml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

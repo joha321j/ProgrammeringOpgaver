@@ -27,7 +27,7 @@ namespace Ex28.UI
 
     class Menu
     {
-        private readonly Controller _controller = new Controller();
+        private readonly Controller _controller = Controller.GetController();
         public void Show()
         {
             bool running = true;

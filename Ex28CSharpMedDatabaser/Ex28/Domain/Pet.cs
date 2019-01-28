@@ -28,11 +28,15 @@ namespace Ex28.Domain
             PetId = petId;
 
         }
-
+       
+        /// <summary>
+        /// PetId, Name, Type, Breed, DateOfBirth, Weight, OwnerId
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return "PetID: " + PetId + " PetName: " + Name + " PetType: " + Type + " PetBreed: " + Breed + " PetDOB: " +
-                   DateOfBirth + " PetWeight: " + Weight + " OwnerID: " + OwnerId;
+            return PetId + ", " + Name + ", " + Type + ", " + Breed + ", " +
+                   DateOfBirth + ", " + Weight + ", " + OwnerId;
         }
     }
 }

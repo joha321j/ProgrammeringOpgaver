@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ex28.Domain
 {
-    internal class PetController
+    internal class PetRepo
     {
         private readonly Connection _connection;
 
-        public PetController(Connection connection)
+        public PetRepo(Connection connection)
         {
             _connection = connection;
         }
