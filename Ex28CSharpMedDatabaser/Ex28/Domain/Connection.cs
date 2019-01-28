@@ -7,19 +7,19 @@ namespace Ex28.Domain
 {
     internal class Connection
     {
-        private string connectionString = "Server = EALSQL1.eal.local;" +
-                                          " Connection = B_DB14_2018;" +
+        private readonly string _connectionString = "Server = EALSQL1.eal.local;" +
+                                          " Database = B_DB14_2018;" +
                                           " User Id = B_STUDENT14;" +
                                           " Password = B_OPENDB14";
 
         public void AddPet(Pet pet)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    connection.Open();
-                    using (SqlCommand insertPet = new SqlCommand("InsertPet", connection)
+                    sqlConnection.Open();
+                    using (SqlCommand insertPet = new SqlCommand("InsertPet", sqlConnection)
                         { CommandType = CommandType.StoredProcedure})
                     {
                         insertPet.Parameters.Add(new SqlParameter("@PetInsertName", pet.Name));
@@ -42,7 +42,7 @@ namespace Ex28.Domain
         public List<Pet> GetAllPets()
         {
             
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
                 {
@@ -73,7 +73,7 @@ namespace Ex28.Domain
 
         public void AddOwner(Owner owner)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
                 {
@@ -97,7 +97,7 @@ namespace Ex28.Domain
 
         public List<Owner> FindOwnerByEmail(string firstName, string email)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
                 {
@@ -131,7 +131,7 @@ namespace Ex28.Domain
 
         public List<Owner> FindOwnerByLastName(string lastName)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 using (SqlCommand findOwnerByLastNameCommand = new SqlCommand("GetOwnersByLastName", connection)

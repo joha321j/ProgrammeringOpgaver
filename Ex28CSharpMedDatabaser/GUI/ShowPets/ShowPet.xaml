@@ -1,0 +1,26 @@
+﻿<Page x:Class="GUI.ShowPets.ShowPet"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI.ShowPets"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShowPet">
+
+    <Grid Background="White">
+        <Button Name="UpdateButton" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="305,5,0,0" Click="UpdateButton_OnClick"/>
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,24,0,0"/>
+        <Label Content="Type" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135,24,0,0"/>
+        <Label Content="Breed" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="260,24,0,0"/>
+        <Label Content="Date of birth" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,24,0,0"/>
+        <Label Content="Weight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="510,24,0,0"/>
+        <Label Content="OwnerId" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,24,0,0"/>
+        <StackPanel Name="NamePanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="10,50,0,0"/>
+        <StackPanel Name="TypePanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="135,50,0,0"/>
+        <StackPanel Name="BreedPanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="260,50,0,0"/>
+        <StackPanel Name="DobPanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="385,50,0,0"/>
+        <StackPanel Name="WeightPanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="510,50,0,0"/>
+        <StackPanel Name="OwnerIdPanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="94" Margin="635,50,0,0"/>
+    </Grid>
+</Page>

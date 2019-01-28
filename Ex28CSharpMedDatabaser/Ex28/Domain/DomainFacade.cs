@@ -8,39 +8,39 @@ namespace Ex28.Domain
 {
     class DomainFacade
     {
-        private readonly OwnerController _ownerController;
-        private readonly PetController _petController;
+        private readonly OwnerRepo _ownerRepo;
+        private readonly PetRepo _petRepo;
 
         public DomainFacade()
         {
             var connection = new Connection();
-            _petController = new PetController(connection);
-            _ownerController = new OwnerController(connection);
+            _petRepo = new PetRepo(connection);
+            _ownerRepo = new OwnerRepo(connection);
         }
 
         public void AddPet(string petName, string petType, string petBreed, string toShortDateString, double petWeightDouble, int ownerIdInt)
         {
-            _petController.AddPet(petName, petType, petBreed, toShortDateString, petWeightDouble, ownerIdInt);
+            _petRepo.AddPet(petName, petType, petBreed, toShortDateString, petWeightDouble, ownerIdInt);
         }
 
         public List<string> GetAllPets()
         {
-            return _petController.GetAllPets();
+            return _petRepo.GetAllPets();
         }
 
         public void AddOwner(string ownerFirstName, string ownerLastName, string ownerPhone, string ownerEmail)
         {
-            _ownerController.AddOwner(ownerFirstName, ownerLastName, ownerPhone, ownerEmail);
+            _ownerRepo.AddOwner(ownerFirstName, ownerLastName, ownerPhone, ownerEmail);
         }
 
         public List<string> FindOwnerByEmail(string firstName, string email)
         {
-            return _ownerController.FindOwnerByEmail(firstName, email);
+            return _ownerRepo.FindOwnerByEmail(firstName, email);
         }
 
         public List<string> FindOwnerByLastName(string lastName)
         {
-            return _ownerController.FindOwnerByLastName(lastName);
+            return _ownerRepo.FindOwnerByLastName(lastName);
         }
     }
 }
