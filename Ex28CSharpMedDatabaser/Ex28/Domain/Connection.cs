@@ -8,7 +8,7 @@ namespace Ex28.Domain
     internal class Connection
     {
         private string connectionString = "Server = EALSQL1.eal.local;" +
-                                          " Connection = B_DB14_2018;" +
+                                          " Database = B_DB14_2018;" +
                                           " User Id = B_STUDENT14;" +
                                           " Password = B_OPENDB14";
 
@@ -53,7 +53,7 @@ namespace Ex28.Domain
                         List<Pet> petList = new List<Pet>();
                         while (reader.Read())
                         {
-                            string date = !reader.IsDBNull(4) ? reader.GetDateTime(4).ToString() : "NULL";
+                            string date = !reader.IsDBNull(4) ? reader.GetDateTime(4).ToString() : "NULL";                            
 
                             Pet petToAdd = new Pet(reader.GetString(1), reader.GetString(2), reader.GetString(3),
                                 date, reader.GetDouble(5), reader.GetInt32(6), reader.GetInt32(0));
