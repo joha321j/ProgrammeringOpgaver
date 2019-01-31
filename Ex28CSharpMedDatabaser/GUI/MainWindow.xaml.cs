@@ -31,6 +31,8 @@ namespace GUI
 
         private void MwInsertPetButton_OnClick(object sender, RoutedEventArgs e)
         {
+            //TODO: New messagebox/window
+            MessageBox.Show("Test!");
             MwFrame.Content = InsertPetPage.GetInsertPetPage();
         }
 

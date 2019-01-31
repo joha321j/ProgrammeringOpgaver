@@ -11,7 +11,7 @@
         <Button Name="MwInsertOwnerButton"  Content="Add owner" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="10,54,0,0" Click="MwInsertOwnerButton_OnClick"/>
         <Button Name="MwShowPetsButton" Content="Show all pets" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="10,78,0,0" Click="MwShowPetsButton_OnClick"/>
         <Button Name="MwFindOwnerButton" Content="Find owner" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="10,102,0,0"/>
-        <Frame Name="MwFrame" Content="" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="689" Margin="95,10,0,0" NavigationUIVisibility="Hidden"/>
+        <Frame Name="MwFrame" Content="" Margin="95,10,9.6,10" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>

@@ -16,11 +16,11 @@
         <Label Content="Date of birth" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,24,0,0"/>
         <Label Content="Weight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="510,24,0,0"/>
         <Label Content="OwnerId" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="635,24,0,0"/>
-        <StackPanel Name="NamePanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="10,50,0,0"/>
-        <StackPanel Name="TypePanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="135,50,0,0"/>
-        <StackPanel Name="BreedPanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="260,50,0,0"/>
-        <StackPanel Name="DobPanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="385,50,0,0"/>
-        <StackPanel Name="WeightPanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="120" Margin="510,50,0,0"/>
-        <StackPanel Name="OwnerIdPanel"  HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="94" Margin="635,50,0,0"/>
+        <ListBox Name="PetListBox" Margin="10,55,10,9.6" HorizontalContentAlignment="Stretch" MouseDoubleClick="PetListBox_OnMouseDoubleClick">
+            
+        </ListBox>
+
+        <Button Name="AddPetButton" Content="Add pet" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="225,5,0,0" Click="AddPetButton_OnClick"/>
+
     </Grid>
 </Page>

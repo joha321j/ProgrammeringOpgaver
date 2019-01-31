@@ -8,7 +8,7 @@
         internal string Email { get; }
         internal int Id { get; }
 
-        public Owner(string firstName, string lastName, string phone, string email = "NULL", int id = 0)
+        public Owner(string firstName, string lastName, string phone = "000", string email = "NULL", int id = 0)
         {
             FirstName = firstName;
             LastName = lastName;

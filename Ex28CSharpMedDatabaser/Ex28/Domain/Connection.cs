@@ -7,11 +7,21 @@ namespace Ex28.Domain
 {
     internal class Connection
     {
+        private static Connection _connection;
         private readonly string _connectionString = "Server = EALSQL1.eal.local;" +
                                           " Database = B_DB14_2018;" +
                                           " User Id = B_STUDENT14;" +
                                           " Password = B_OPENDB14";
 
+        private Connection()
+        {
+            _connection = this;
+        }
+
+        public static Connection GetConnection()
+        {
+            return _connection ?? (_connection = new Connection());
+        }
         public void AddPet(Pet pet)
         {
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
@@ -150,6 +160,26 @@ namespace Ex28.Domain
                         return ownerList;
                     }
                 }
+            }
+        }
+
+        public List<Owner> GetAllOwners()
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (SqlCommand getAllOwners = new SqlCommand("SELECT * FROM PET_OWNER", connection))
+                using (SqlDataReader reader = getAllOwners.ExecuteReader())
+                {
+                    List<Owner> owners = new List<Owner>();
+                    while (reader.Read())
+                    {
+                        owners.Add(new Owner(reader.GetString(2), reader.GetString(1), reader[3].ToString(), reader.GetString(4), reader.GetInt32(0)));
+                    }
+
+                    return owners;
+                }
+
             }
         }
     }

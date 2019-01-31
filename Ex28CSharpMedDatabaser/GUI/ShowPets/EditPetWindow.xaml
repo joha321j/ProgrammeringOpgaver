@@ -1,0 +1,26 @@
+﻿<Window x:Class="GUI.ShowPets.EditPetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.ShowPets"
+        mc:Ignorable="d"
+        Title="EditPetWindow" Height="450" Width="800">
+    <Grid Background="White">
+        <TextBox Name="PetNameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="357,99,0,0" TextChanged="PetPageTextBox_OnTextChanged"/>
+        <TextBox Name="PetTypeTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="357,127,0,0" TextChanged="PetPageTextBox_OnTextChanged"/>
+        <TextBox Name="PetBreedTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="357,155,0,0" TextChanged="PetPageTextBox_OnTextChanged"/>
+        <TextBox Name="PetDobTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="357,183,0,0" TextChanged="PetPageTextBox_OnTextChanged"/>
+        <TextBox Name="PetWeightTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="357,211,0,0" TextChanged="PetPageTextBox_OnTextChanged"/>
+        <TextBox Name="OwnerIdTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="357,239,0,0" TextChanged="PetPageTextBox_OnTextChanged"/>
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="261,95,0,0"/>
+        <Label Content="Type" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="261,123,0,0"/>
+        <Label Content="Breed" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="261,151,0,0"/>
+        <Label Content="Date of birth" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="261,179,0,0"/>
+        <Label Content="Weight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="261,207,0,0"/>
+        <Label Content="Owner ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="261,235,0,0"/>
+        <Button Name="InsertPetPageButton" Content="Update pet" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="516,101,0,0" Click="UpdatePetPageButton_OnClick" IsEnabled="False"/>
+        <Button Name="DeletePet" Content="Delete pet" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="516,127,0,0" Click="DeletePet_OnClick"/>
+
+    </Grid>
+</Window>

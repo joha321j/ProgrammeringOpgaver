@@ -61,10 +61,20 @@
     <Compile Include="ConfirmationWindow.xaml.cs">
       <DependentUpon>ConfirmationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InsertPet\AddPetWindow.xaml.cs">
+      <DependentUpon>AddPetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowPets\EditPetWindow.xaml.cs">
+      <DependentUpon>EditPetWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShowPets\ShowPet.xaml.cs">
       <DependentUpon>ShowPet.xaml</DependentUpon>
     </Compile>
     <Page Include="InsertOwner\InsertOwnerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InsertPet\AddPetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,6 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ConfirmationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowPets\EditPetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ex28.Application;
+using GUI.InsertPet;
 
 namespace GUI.ShowPets
 {
@@ -28,14 +29,29 @@ namespace GUI.ShowPets
         {
             InitializeComponent();
             _controller = Controller.GetController();
+            _controller.RaisePetChangedEvent += Controller_RaisePetChangedEvent;
+            UpdatePetList();
 
+        }
+
+        private void Controller_RaisePetChangedEvent(object sender, EventArgs e)
+        {
             UpdatePetList();
         }
 
         private void UpdatePetList()
         {
             _pets = new List<string>();
+            _pets = _controller.GetAllPets();
 
+
+            PetListBox.Items.Clear();
+
+            foreach (string pet in _pets)
+            {
+                PetListBox.Items.Add(pet);
+            }
+            /*
             NamePanel.Children.Clear();
             TypePanel.Children.Clear();
             BreedPanel.Children.Clear();
@@ -67,6 +83,7 @@ namespace GUI.ShowPets
                 tempLabel = new Label() {Content = petInfo[6]};
                 OwnerIdPanel.Children.Add(tempLabel);
             }
+            */
         }
 
         public static ShowPet GetShowPet()
@@ -77,6 +94,24 @@ namespace GUI.ShowPets
         private void UpdateButton_OnClick(object sender, RoutedEventArgs e)
         {
             UpdatePetList();
+        }
+
+        private void AddPetButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            AddPetWindow petWindow = new AddPetWindow();
+
+            petWindow.Show();
+        }
+
+        private void PetListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+
+            string[] tempStringArray = PetListBox.SelectedItem.ToString().Split(',');
+
+            EditPetWindow petWindow = new EditPetWindow(tempStringArray);
+
+            petWindow.Show();
         }
     }
 }
