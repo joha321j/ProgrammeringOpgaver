@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,40 @@ using System.Threading.Tasks;
 
 namespace ADT
 {
-    public class MyLinkedList<T>
+    public class MyLinkedList<T> : IEnumerable
     {
+
+        private class MyLinkedListEnumerator : IEnumerator
+        {
+            private readonly Node _head;
+            private Node _current;
+            private int _countIndex;
+
+            public MyLinkedListEnumerator(Node head)
+            {
+                _head = head;
+                _countIndex = 0;
+            }
+
+            public bool MoveNext()
+            {
+                _current = _countIndex > 0 ? _current.Next : _head;
+                _countIndex++;
+
+                return _current != null;
+            }
+
+            public void Reset()
+            {
+                _countIndex = 0;
+            }
+
+            private T Current => _current.Data;
+            object IEnumerator.Current => Current;
+        }
         private class Node
         {
-            public T Data { get; set; }
+            public T Data { get; }
             public Node Next { get; set; }
 
             public Node(T data)
@@ -19,17 +49,12 @@ namespace ADT
             }
         }
 
-        private Node head;
+        private Node _head;
 
         public int Count { get; private set; }
-        public T First
-        {
-            get { return ItemAt(0); }
-        }
-        public T Last
-        {
-            get { return ItemAt(Count - 1); }
-        }
+        public T First => ItemAt(0);
+
+        public T Last => ItemAt(Count - 1);
 
         /// <summary>
         /// The Insert(Object data, int index = 0) method inserts data as a node in the list
@@ -49,12 +74,12 @@ namespace ADT
 
             if (Count == 0 || index < 1)
             {
-                n.Next = head;
-                head = n;
+                n.Next = _head;
+                _head = n;
             }
             else
             {
-                Node position = head;
+                Node position = _head;
                 for (int i = 0; i < index - 1; i++)
                 {
                     position = position.Next;
@@ -88,10 +113,10 @@ namespace ADT
                     index = Count;
 
                 if (index < 1)
-                    head = head.Next;
+                    _head = _head.Next;
                 else
                 {
-                    Node position = head;
+                    Node position = _head;
                     for (int i = 0; i < index - 1; i++)
                     {
                         position = position.Next;
@@ -112,7 +137,7 @@ namespace ADT
             T result = default(T);
             if (index < Count && index >= 0)
             {
-                Node position = head;
+                Node position = _head;
                 for (int i = 0; i < index; i++)
                 {
                     position = position.Next;
@@ -129,7 +154,7 @@ namespace ADT
         public override string ToString()
         {
             string result = "";
-            Node pointernode = head;
+            Node pointernode = _head;
             while (pointernode != null)
             {
                 result = result + pointernode.Data.ToString() + "\n";
@@ -137,6 +162,11 @@ namespace ADT
                 pointernode = pointernode.Next;
             }
             return result;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new MyLinkedListEnumerator(_head);
         }
     }
 }
