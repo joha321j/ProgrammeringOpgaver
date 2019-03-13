@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D67878E-CB69-4159-9683-B7ABA44F3668}</ProjectGuid>
+    <ProjectGuid>{1A0CB6D0-6201-4587-8785-B76BB20CD553}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UnitTestProject1</RootNamespace>
@@ -49,8 +49,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClubMember.cs" />
-    <Compile Include="ExtensionTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ADT\ADT.csproj">
-      <Project>{08359d5f-3d38-42c6-b549-7c9d1fa5c9ab}</Project>
-      <Name>ADT</Name>
+    <ProjectReference Include="..\ExtensionMethodExercise\ExtensionMethodExercise.csproj">
+      <Project>{0b0b62b4-86b1-47ba-b342-7ef40bad2be7}</Project>
+      <Name>ExtensionMethodExercise</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

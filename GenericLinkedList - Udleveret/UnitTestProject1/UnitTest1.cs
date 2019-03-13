@@ -267,8 +267,5 @@ namespace UnitTestProject1
                 Assert.AreEqual(list.ItemAt(j++), e.Current);
             }
         }
-
-
     }
-
 }
