@@ -1,0 +1,6 @@
+CREATE PROCEDURE CalculateDebt @CustomerId INT
+AS
+SELECT
+
+DECLARE @Sum DECIMAL(18, 0);
+
