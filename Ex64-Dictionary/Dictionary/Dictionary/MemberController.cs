@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Dictionary
 {
@@ -56,6 +57,7 @@ namespace Dictionary
             {
                 list.Add(member.Value);
             }
+
             return list.ConvertAll(x => x.ToString());
         }
 
