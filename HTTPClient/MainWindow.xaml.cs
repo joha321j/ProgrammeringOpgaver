@@ -49,8 +49,11 @@ namespace HTTPClient
 
             _controller.ResponseEventHandler += UpdateMessageReceivedTextBox;
 
+            _controller.SendMessage(UserNameBox.Text);
+
             SendButton.IsEnabled = true;
             ConnectButton.IsEnabled = false;
+            UserNameBox.IsEnabled = false;
         }
     }
 }
