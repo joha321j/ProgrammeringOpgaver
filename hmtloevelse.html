@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>Forside</title>
+    <link rel="stylesheet" type="text/css" href="Stylesheet.css">
+</head>
+
+<body>
+    <img id="imageId" src="A-Consensus.jpg" alt="A-Consensus" height="255" width="255">
+    <h1 id="myHeader">Mit første program </h1>
+    <p>Dette er <span class="paraClass">paragraffen</span> i min første html fil.</p>
+    <p id="knappen">Anden paragraf, der ændres når du clicker på knappen.<br></p>
+
+    <a href="https://www.google.com">Google</a>
+
+    <button type="button"
+    onclick="document.getElementById('knappen').innerHTML = buttonClick(document.getElementById('input').value)">KLIK PÅ MIG BABY, DU VED DU VIL</button>
+    <input type="text" id="input">
+
+    <script>
+        var image = 0;
+
+        function helloWorld(input){
+            var text = "";
+        for(i = 0; i < 10; i++) {
+            text += "Hello World" + " " + input + "<br>";
+        }
+         return  text;
+        }
+
+        function changeImage(){
+            if(image < 1){
+                document.getElementById('imageId').src="M31.jpg";
+                image = 1;
+                }
+            else{
+                document.getElementById('imageId').src="A-Consensus.jpg"
+                image = 0;
+            }
+
+        }
+
+        function buttonClick(input){
+            var text = helloWorld(input);
+            changeImage();
+            alert("Hello World!" + " " + input)
+
+            return text;
+        }
+        
+
+    </script>
+
+
+</body>
