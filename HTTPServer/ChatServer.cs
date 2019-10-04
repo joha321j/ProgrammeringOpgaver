@@ -11,6 +11,7 @@ namespace HTTPServer
     class ChatServer
     {
         private List<string> _userNames = new List<string>();
+        private List<ChatRoom> _chatRooms = new List<ChatRoom>();
         public void ExecuteServer()
         {
             int localPort = 1111;
@@ -57,8 +58,9 @@ namespace HTTPServer
             if (_userNames.Contains(userName))
             {
                 userName = userName + _userNames.FindAll(s => string.Equals(s, userName)).Count;
-                _userNames.Add(userName);
             }
+
+            _userNames.Add(userName);
 
             return userName;
         }
