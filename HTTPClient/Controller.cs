@@ -26,7 +26,7 @@ namespace HTTPClient
         }
         public void SendMessage(string message)
         {
-            byte[] messageSent = Encoding.UTF8.GetBytes(message + "<EOF>");
+            byte[] messageSent = Encoding.ASCII.GetBytes(message + "<EOF>");
             int byteSent = _socket.Send(messageSent);
         }
 
@@ -39,7 +39,7 @@ namespace HTTPClient
 
                 int byteReceived = _socket.Receive(messageReceived);
 
-                ResponseEventHandler?.Invoke(Encoding.UTF8.GetString(messageReceived,
+                ResponseEventHandler?.Invoke(Encoding.ASCII.GetString(messageReceived,
                         0,
                         byteReceived),
                     EventArgs.Empty);

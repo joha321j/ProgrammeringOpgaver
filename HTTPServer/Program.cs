@@ -9,47 +9,13 @@ namespace HTTPServer
     class Program
     {
         public static EventHandler MessageReceivedEventHandler;
+
         static void Main(string[] args)
         {
-            ExecuteServer();
+            ChatServer chatServer = new ChatServer();
+            Thread serverThread = new Thread(chatServer.ExecuteServer);
+            serverThread.Start();
         }
 
-        private static void ExecuteServer()
-        {
-            int localPort = 1111;
-
-            IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = ipHost.AddressList[2];
-            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, localPort);
-
-            Console.WriteLine("Server IP-Address is: {0} : {1}", ipAddress, localPort);
-
-            Socket listenerSocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-            try
-            {
-                listenerSocket.Bind(localEndPoint);
-
-                listenerSocket.Listen(10);
-
-                bool running = true;
-                while (running)
-                {
-                    Console.WriteLine("Waiting on connection...");
-
-                    Socket clientSocket = listenerSocket.Accept();
-
-                    Console.WriteLine("Connected: {0}", clientSocket.RemoteEndPoint);
-
-                    Listener newListener = new Listener(clientSocket, "FISSE");
-                    Sender newSender = new Sender(clientSocket);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
     }
 }

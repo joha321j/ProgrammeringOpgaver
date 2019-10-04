@@ -30,7 +30,7 @@ namespace HTTPServer
             while (running)
             {
                 byte[] receivedMessage = new byte[1024];
-                string data = null;
+                string messageString = null;
 
                 bool listening = true;
 
@@ -38,17 +38,17 @@ namespace HTTPServer
                 {
                     int numByte = _socket.Receive(receivedMessage);
 
-                    data += Encoding.UTF8.GetString(receivedMessage, 0, numByte);
+                    messageString += Encoding.ASCII.GetString(receivedMessage, 0, numByte);
 
-                    if (data.IndexOf("<EOF>", StringComparison.Ordinal) > -1)
+                    if (messageString.IndexOf("<EOF>", StringComparison.Ordinal) > -1)
                     {
                         listening = false;
                     }
                 }
 
-                Console.WriteLine(_userName + ": " + receivedMessage);
+                Console.WriteLine(_userName + ": " + messageString);
 
-                Program.MessageReceivedEventHandler.Invoke(_userName + ";" + receivedMessage, EventArgs.Empty);
+                Program.MessageReceivedEventHandler.Invoke(_userName + ": " + messageString, EventArgs.Empty);
             }
         }
     }
