@@ -21,7 +21,7 @@
         <Label Name="PortLabel" Content="Port" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="63"/>
         <TextBox Name="PortBox" HorizontalAlignment="Left" Height="23" Margin="78,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" RenderTransformOrigin="0.462,1.307"/>
         <Label Name="ReceivedLabel"  Content="Message received:" HorizontalAlignment="Left" Margin="229.7,86,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox Name="MessageReceived" HorizontalAlignment="Left" Margin="229.7,130,0,0" VerticalAlignment="Top" Height="256" Width="394" Grid.Column="1"/>
+        <TextBox Name="MessageReceived" HorizontalAlignment="Left" Margin="229.7,130,0,0" VerticalAlignment="Top" Height="256" Width="394" Grid.Column="1" IsReadOnly="True"/>
         <Button Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="101,81,0,0" Click="ConnectButtonClick"/>
         
     </Grid>
