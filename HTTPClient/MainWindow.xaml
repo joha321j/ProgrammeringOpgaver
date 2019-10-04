@@ -11,7 +11,7 @@
             <ColumnDefinition Width="109*"/>
             <ColumnDefinition Width="684*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="SendButton" Content="Send Message" HorizontalAlignment="Left" Margin="10,391,0,0" VerticalAlignment="Top" Width="89" Click="SendButton_Click"/>
+        <Button Name="SendButton" Content="Send Message" HorizontalAlignment="Left" Margin="10,391,0,0" VerticalAlignment="Top" Width="89" Click="SendButton_Click" IsEnabled="False"/>
         <TextBox Name="SendMessage" HorizontalAlignment="Left" Height="256" Margin="10,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="307" Grid.ColumnSpan="2"/>
         <Label Name="MessageLabel" Content="Message to send:" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="105" Grid.ColumnSpan="2"/>
         <Label Name="AddressLabel" Content="Address" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="63"/>
@@ -19,8 +19,8 @@
         <Label Name="PortLabel" Content="Port" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="63"/>
         <TextBox Name="PortBox" HorizontalAlignment="Left" Height="23" Margin="78,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <Label Name="ReceivedLabel"  Content="Message received:" HorizontalAlignment="Left" Margin="229.7,86,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label Name="MessageReceived" Content="" HorizontalAlignment="Left" Margin="229.7,130,0,0" VerticalAlignment="Top" Height="256" Width="394" Grid.Column="1"/>
-        <Button Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="94.2,43,0,0" Click="Button_Click"/>
+        <TextBox Name="MessageReceived" HorizontalAlignment="Left" Margin="229.7,130,0,0" VerticalAlignment="Top" Height="256" Width="394" Grid.Column="1"/>
+        <Button Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="94.2,43,0,0" Click="ConnectButtonClick"/>
 
     </Grid>
 </Window>

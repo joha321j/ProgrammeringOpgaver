@@ -2,11 +2,13 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace HTTPServer
 {
     class Program
     {
+        public static EventHandler MessageReceivedEventHandler;
         static void Main(string[] args)
         {
             ExecuteServer();
@@ -37,47 +39,10 @@ namespace HTTPServer
 
                     Socket clientSocket = listenerSocket.Accept();
 
+                    Console.WriteLine("Connected: {0}", clientSocket.RemoteEndPoint);
 
-
-                    byte[] bytes = new byte[1024];
-                    string data = null;
-
-                    bool receivingData = true;
-
-                    while (receivingData)
-                    {
-                        int numByte = clientSocket.Receive(bytes);
-
-                        data += Encoding.ASCII.GetString(bytes, 0, numByte);
-
-                        if (data.IndexOf("<EOF>", StringComparison.Ordinal) > -1)
-                        {
-                            receivingData = false;
-                        }
-                    }
-
-                    Console.WriteLine("Text received -> {0}", data);
-                    byte[] message = Encoding.ASCII.GetBytes("Test server response");
-
-                    clientSocket.Send(message);
-
-                    clientSocket.Shutdown(SocketShutdown.Both);
-                    clientSocket.Close();
-
-                    Console.WriteLine("Press 0 to shutdown server.");
-
-                    bool validInput = false;
-                    int userInput = 5;
-                    while (!validInput)
-                    {
-                        validInput = int.TryParse(Console.ReadLine(), out userInput);
-                    }
-
-                    if (userInput == 0)
-                    {
-                        running = false;
-                    }
-
+                    Listener newListener = new Listener(clientSocket, "FISSE");
+                    Sender newSender = new Sender(clientSocket);
                 }
             }
             catch (Exception e)

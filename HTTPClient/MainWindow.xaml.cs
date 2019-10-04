@@ -20,33 +20,37 @@ namespace HTTPClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly Controller _controller;
+        private Controller _controller;
         public MainWindow()
         {
             InitializeComponent();
-
-            _controller = new Controller();
-
-            _controller.ResponseEventHandler += UpdateMessageReceivedTextBox;
         }
 
         private void UpdateMessageReceivedTextBox(object sender, EventArgs e)
         {
-            MessageReceived.Content = sender;
+            string message = sender.ToString();
+            MessageReceived.AppendText(message);
+            MessageReceived.AppendText(Environment.NewLine);
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            string address = AddressBox.Text;
-            int port = int.Parse(PortBox.Text);
+
             string message = SendMessage.Text;
 
-            _controller.SendMessage(address, port, message);
+            _controller?.SendMessage(message);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ConnectButtonClick(object sender, RoutedEventArgs e)
         {
+            string address = AddressBox.Text;
+            int port = int.Parse(PortBox.Text);
+            _controller = new Controller(address, port);
 
+            _controller.ResponseEventHandler += UpdateMessageReceivedTextBox;
+
+            SendButton.IsEnabled = true;
+            ConnectButton.IsEnabled = false;
         }
     }
 }
