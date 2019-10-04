@@ -19,7 +19,7 @@ namespace HTTPServer
         }
         private void Send(object o = null, EventArgs e = null)
         {
-            byte[] bytesToSend = Encoding.UTF8.GetBytes(o.ToString());
+            byte[] bytesToSend = Encoding.ASCII.GetBytes(o.ToString());
 
             _socket.Send(bytesToSend);
         }
