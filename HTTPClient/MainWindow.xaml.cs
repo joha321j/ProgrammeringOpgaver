@@ -31,6 +31,7 @@ namespace HTTPClient
             string message = sender.ToString();
             Dispatcher?.InvokeAsync(() => MessageReceived.AppendText(message));
             Dispatcher?.InvokeAsync(() => MessageReceived.AppendText(Environment.NewLine));
+            Dispatcher?.InvokeAsync(MessageReceived.ScrollToEnd);
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
