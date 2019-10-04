@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Net.WebSockets;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,30 +21,35 @@ namespace HTTPServer
             _userName = userName;
 
             Thread listeningThread = new Thread(Listen);
+            listeningThread.Start();
         }
 
         public void Listen()
         {
-            byte[] receivedMessage = new byte[1024];
-            string data = null;
-
-            bool listening = true;
-
-            while (listening)
+            bool running = true;
+            while (running)
             {
-                int numByte = _socket.Receive(receivedMessage);
+                byte[] receivedMessage = new byte[1024];
+                string data = null;
 
-                data += Encoding.UTF8.GetString(receivedMessage, 0, numByte);
+                bool listening = true;
 
-                if (data.IndexOf("<EOF>", StringComparison.Ordinal) > -1)
+                while (listening)
                 {
-                    listening = false;
+                    int numByte = _socket.Receive(receivedMessage);
+
+                    data += Encoding.UTF8.GetString(receivedMessage, 0, numByte);
+
+                    if (data.IndexOf("<EOF>", StringComparison.Ordinal) > -1)
+                    {
+                        listening = false;
+                    }
                 }
+
+                Console.WriteLine(_userName + ": " + receivedMessage);
+
+                Program.MessageReceivedEventHandler.Invoke(_userName + ";" + receivedMessage, EventArgs.Empty);
             }
-
-            Console.WriteLine(_userName + ": " + receivedMessage);
-
-            Program.MessageReceivedEventHandler.Invoke(_userName + ";" + receivedMessage, EventArgs.Empty);
         }
     }
 }

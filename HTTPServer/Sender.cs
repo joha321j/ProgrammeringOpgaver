@@ -15,11 +15,8 @@ namespace HTTPServer
         public Sender(Socket socket)
         {
             _socket = socket;
-
             Program.MessageReceivedEventHandler += Send;
-
         }
-
         private void Send(object o = null, EventArgs e = null)
         {
             byte[] bytesToSend = Encoding.UTF8.GetBytes(o.ToString());

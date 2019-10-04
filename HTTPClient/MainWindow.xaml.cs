@@ -29,8 +29,8 @@ namespace HTTPClient
         private void UpdateMessageReceivedTextBox(object sender, EventArgs e)
         {
             string message = sender.ToString();
-            MessageReceived.AppendText(message);
-            MessageReceived.AppendText(Environment.NewLine);
+            Dispatcher?.InvokeAsync(() => MessageReceived.AppendText(message));
+            Dispatcher?.InvokeAsync(() => MessageReceived.AppendText(Environment.NewLine));
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
