@@ -43,6 +43,16 @@ namespace NewsFeed2API.Controllers
         {
         }
 
+        //POST api/values
+        [HttpPost]
+        public async Task<ActionResult<News>> PostNews(News news)
+        {
+            _context.news.AddRange(news);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("PostNews", new {id = news.NewsId}, news);
+        }
+
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
