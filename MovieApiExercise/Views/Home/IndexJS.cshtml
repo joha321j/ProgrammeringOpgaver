@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
+                @Html.DisplayName("Title")
+            </th>
+            <th>
+                @Html.DisplayName("Genre")
+            </th>
+            <th>
+                @Html.DisplayName("Description")
+            </th>
+            <th>
+                @Html.DisplayName("Number of seats")
+            </th>
+        </tr>
+    </thead>
+    <tbody id="MovieContainer">
+        
+    </tbody>
+</table>
+
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script type="text/javascript">
+            getMovies();
+        </script>
+</body>
+</html>

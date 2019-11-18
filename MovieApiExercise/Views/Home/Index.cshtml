@@ -1,0 +1,61 @@
+﻿@model MovieApiExercise.ViewModels.MovieViewModel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
+                @Html.DisplayName("Title")
+            </th>
+            <th>
+                @Html.DisplayName("Genre")
+            </th>
+            <th>
+                @Html.DisplayName("Description")
+            </th>
+            <th>
+                @Html.DisplayName("Number of seats")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Movies)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.id)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.title)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.genre)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.description)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.numSeats)
+                </th>
+                <td>
+                    <form asp-action="ReserveSeat" asp-route-id="@item.id">
+                        <button type="submit">Reserver</button>
+                    </form>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<form asp-action="Create" method="get">
+    <button type="submit">
+        Create
+    </button>
+</form>

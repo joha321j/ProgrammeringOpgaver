@@ -1,0 +1,29 @@
+﻿@model System.Collections.Generic.List<NewsFeed2MVC.Models.News>
+
+<div>
+
+    @foreach (var item in Model)
+    {
+        <ul style="padding:0; margin:0; list-style:none">
+            <li>
+                <div style="border-bottom: 1px solid magenta;"></div>
+                <div style="font-weight:bold">@item.Title</div>
+                <div style="font-style:italic; font-size:10px">Forfatter @item.Author, sidst opdateret: @item.UpdatedDate</div>
+                <br> @item.Content
+                <div>
+                    @{
+                        string[] listOfTags = @item.HashTags.Split(';');
+
+                        foreach (var tag in listOfTags)
+                        {
+                            <li style="background:none repeat scroll 0 0 #e4e4e4; color:#888; display:block; float:left; border-bottom:none !important; font-size:13px; line-height:12px; margin:0 2px 2px 0; padding:12px 17px;"><a href="#">@tag</a></li>
+                        }
+                    }
+                </div>
+                <br>
+            
+            </li>
+            <br>
+        </ul>
+    }
+</div>
